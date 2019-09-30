@@ -8,6 +8,7 @@ const path = require('path')
 app = express();
 
 app.set('view engine', 'pug') //set view engine to use pug 
+app.set('views', path.join(__dirname, 'views', 'pug'))
 
 
 app.use(bodyparser.urlencoded({ extended: false })); //register body parser in this middleare
@@ -21,7 +22,7 @@ app.use(shoproute)
 // Default route if page is not found
 app.use((req, res) => {
     // res.status(404).sendFile(path.join(path.dirname(process.mainModule.filename), 'views', '404.html'))
-    res.render('404')
+    res.render('404', { docTitle: 'Page not found' })
 })
 
 // const server = http.createServer(app);
