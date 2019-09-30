@@ -10,7 +10,8 @@ router.post('/add-product', (req, res) => {
 })
 
 router.get('/add-product', (req, res) => {
-    res.sendFile(path.join(path.dirname(process.mainModule.filename), 'views', 'add-product.html'))
+    // res.sendFile(path.join(path.dirname(process.mainModule.filename), 'views', 'add-product.html'))
+    res.render('add-product')
 })
 
 exports.routes = router;

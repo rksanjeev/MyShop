@@ -20,7 +20,8 @@ app.use(shoproute)
 
 // Default route if page is not found
 app.use((req, res) => {
-    res.status(404).sendFile(path.join(path.dirname(process.mainModule.filename), 'views', '404.html'))
+    // res.status(404).sendFile(path.join(path.dirname(process.mainModule.filename), 'views', '404.html'))
+    res.render('404')
 })
 
 // const server = http.createServer(app);
