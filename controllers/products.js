@@ -13,6 +13,7 @@ exports.postAddProduct = (req, res) => {
 }
 
 exports.getListOfProducs = (req, resp, next) => {  //This is a middleware. The next object is used to link multiple middlewares.   
-    const product = Product.fetchAll()
-    resp.render('shop', { products: product, docTitle: "My Shop", path: '/' }) //Comment this line to stop using PUG
+    Product.fetchAll((product) => {
+        resp.render('shop', { products: product, docTitle: "My Shop", path: '/' }) //Comment this line to stop using PUG
+    });
 }
